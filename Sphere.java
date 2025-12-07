@@ -1,5 +1,6 @@
 public class Sphere {
 
+    //radius of a sphere should not change after an instance is created
     private final double radius;
 
     public Sphere(double radius) {

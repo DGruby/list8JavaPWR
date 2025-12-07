@@ -1,7 +1,9 @@
 public class Circle {
 
+    //the radius should not be modified once a circle object is created
     private final double radius;
 
+    //all the methods are public, since information about a circle should be accessible
     public Circle(double radius) {
         this.radius = radius;
     }
