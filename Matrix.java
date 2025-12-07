@@ -15,6 +15,14 @@ public class Matrix {
         }
     }
 
+    public int[][] getMatrix() {
+        return matrix;
+    }
+
+    public int getValue(int r, int c) {
+        return matrix[r][c];
+    }
+
     public void printMatrix() {
         for (int[] row : matrix) {
             for (int num : row) {
@@ -73,4 +81,29 @@ public class Matrix {
             }
         }
     }
+
+    public void multiply(Matrix other) {
+        if (columns != other.rows) {
+            System.out.println("Cannot multiply, dimension mismatch");
+            return;
+        }
+
+        int[][] result = new int[rows][other.columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < other.columns; j++) {
+
+                int sum = 0;
+                for (int k = 0; k < columns; k++) {
+                    sum += matrix[i][k] * other.getValue(k, j);
+                }
+
+                result[i][j] = sum;
+            }
+        }
+
+        matrix = result;
+        columns = other.columns;
+    }
+
 }
